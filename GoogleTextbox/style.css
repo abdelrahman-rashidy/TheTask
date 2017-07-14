@@ -1,0 +1,121 @@
+* { box-sizing:border-box; }
+
+/* basic stylings ------------------------------------------ */
+.container    { 
+  font-family:'Roboto';
+  width:600px; 
+  margin:30px auto 0; 
+  display:block; 
+  background:#FFF;
+  padding:10px 50px 50px;
+}
+
+
+/* form starting stylings ------------------------------- */
+.group        { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+input         {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+  transition:.2s ease all; 
+  -moz-transition:.2s ease all; 
+  -webkit-transition:.2s ease all;
+}
+input:focus     { outline:none; }
+
+/* LABEL ======================================= */
+label          {
+  color:#999; 
+  font-size:18px;
+  font-weight:bold;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:.2s ease all; 
+  -moz-transition:.2s ease all; 
+  -webkit-transition:.2s ease all;
+}
+/* req ======================================= */
+#req{
+  color: red;
+  float: left;
+  display: none;
+}
+/* active state */
+input:focus ~ label, input:valid ~ label    {
+  top:-20px;
+  font-size:14px;
+}
+.un{
+  content: '';
+  display: none;
+  height:2px; 
+  width:300px;
+  bottom:1px; 
+  position:absolute;
+  transition:1s ease all; 
+  -moz-transition:1s ease all; 
+  -webkit-transition:1s ease all;
+}
+/* transtion does not work */
+
+/* BOTTOM BARS ================================= */
+.bar  { position:relative; display:block; width:300px; }
+
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 3px;
+    width: 100px;
+    top: 92%;
+    left: 0;
+    pointer-events: none;
+    opacity: .8;
+}
+.highligh{
+    position: absolute;
+    height: 3px;
+    width: 100px;
+    top: 92%;
+    right: 0;
+    pointer-events: none;
+    opacity: .8;
+}
+/* active state */
+input:focus ~ .highlight, input:focus ~ .highligh {
+  -webkit-animation:inputHighlighter 1s ease;
+  -moz-animation:inputHighlighter 1s ease;
+  animation:inputHighlighter 1s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#fff; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#fff; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#fff; }
+  to  { width:0; background:transparent; }
+}
